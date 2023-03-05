@@ -8,12 +8,13 @@ import Tarjeta from '../../../assets/tarjeta.png';
 
 export const CartView = () => {
 
-    const { productsSelected, setProductsSelected, setQuantityProducts, quantityProducts } = useContext(AppContext);
+    const { productsSelected, setProductsSelected, setQuantityProducts, quantityProducts, total, setTotal } = useContext(AppContext);
 
     // funcion para remover items de la lista
-    const handleRemove = ({ id, cantidad }) => {
+    const handleRemove = ({ id, cantidad, subtotal }) => {
         setProductsSelected(productsSelected.filter((x) => x.id !== id));
         setQuantityProducts(quantityProducts - cantidad);
+        setTotal(total - subtotal);
     }
 
     return (
@@ -140,6 +141,7 @@ export const CartView = () => {
                             ))
                         }
                     </div>
+                    <h4>Total: ${total}</h4>
                 </div>
             </div>
         </div>

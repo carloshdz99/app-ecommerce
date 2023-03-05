@@ -10,7 +10,7 @@ export const ProductComponent = ({
     imagen,
 }) => {
 
-    const { productsSelected, setProductsSelected, setQuantityProducts, quantityProducts } = useContext(AppContext);
+    const { productsSelected, setProductsSelected, setQuantityProducts, quantityProducts, total, setTotal } = useContext(AppContext);
 
     // tomara el valor de la cantiadd seleccionada
     const [quantity, setQuantity] = useState(1);
@@ -57,6 +57,7 @@ export const ProductComponent = ({
             ])
         }
 
+        setTotal(total + (quantity * precio));
         setQuantityProducts(quantityProducts + quantity);
     }
 

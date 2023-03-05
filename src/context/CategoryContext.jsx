@@ -23,6 +23,9 @@ export const AppContextProvider = ({ children }) => {
     // cantidad de productos seleccionados
     const [quantityProducts, setQuantityProducts] = useState(0);
 
+    // toma el total de la suma de los productos seleccionados
+    const [total, setTotal] = useState(0);
+
     // para cargar la informacion de nuevo
     const [loading, setLoading] = useState(true);
 
@@ -34,6 +37,7 @@ export const AppContextProvider = ({ children }) => {
             loading, setLoading,
             productsSelected, setProductsSelected,
             quantityProducts, setQuantityProducts,
+            total, setTotal,
         }}>
             {children}
         </AppContext.Provider>
